@@ -1,12 +1,11 @@
 ﻿using Contracts;
-using NLog;
-using ILogger = NLog.ILogger;
+using static NLog.LogManager;
 
 namespace LoggerService;
 
 public class LoggerManager : ILoggerManager
 {
-    private static ILogger _logger = LogManager.GetCurrentClassLogger();
+    private static readonly NLog.ILogger _logger = GetCurrentClassLogger();
 
     public void LogDebug(string message) => _logger.Debug(message);
 
